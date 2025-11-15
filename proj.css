@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #3c4168;
+    font-family: 'poppins';
+
+}
+h1{
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.slide-bar{
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100vh;
+  background-color: cadetblue;
+  padding-top: 60px;
+  transform: translateX(-180px);
+  transition: 0.5s ease;
+}
+#toggle{
+
+    display: none;
+}
+ul li{
+    list-style: none;
+}
+ul li a{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+  gap: 10px;
+  font-size: 16px;
+}
+a:hover{
+    background: #027290;
+}
+.main-line{
+width: 35px;
+  height: 28px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 10;
+
+}
+.top-line, .middle-line, .bottom-line{
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: black;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.4s ease;
+}
+.top-line{
+    top: 0;
+}
+.middle-line{
+    top: 10px;
+}
+.bottom-line{
+    top: 20px;
+}
+#toggle:checked ~ .main-line .top-line{
+    transform:translateX(-50%) rotate(45deg);
+    top: 10px;
+}
+#toggle:checked ~ .main-line .middle-line{
+    opacity: 0;
+}
+#toggle:checked ~ .main-line .bottom-line{
+    top: 10px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+#toggle:checked ~ .slide-bar{
+    transform: translateX(0);
+}
